@@ -19810,7 +19810,7 @@
     }(Credential));
 
     var type = 1;
-          var release = 1;
+        var release = 1;
 
     // Copyright (c) Microsoft Corporation. All rights reserved.
     /**
