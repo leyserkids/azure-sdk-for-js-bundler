@@ -710,7 +710,7 @@
                     objectType !== "function" &&
                     !(value instanceof ArrayBuffer) &&
                     !ArrayBuffer.isView(value) &&
-                    !(typeof Blob === "function" && value instanceof Blob)) {
+                    !((typeof Blob === "function" || typeof Blob === "object") && value instanceof Blob)) {
                     throw new Error(objectName + " must be a string, Blob, ArrayBuffer, ArrayBufferView, or a function returning NodeJS.ReadableStream.");
                 }
             }

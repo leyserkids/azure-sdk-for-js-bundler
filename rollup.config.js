@@ -4,6 +4,7 @@ import json from "@rollup/plugin-json";
 import shim from "rollup-plugin-shim";
 import typescript from "rollup-plugin-typescript2";
 import { uglify } from "rollup-plugin-uglify";
+import replace from '@rollup/plugin-replace';
 
 const defaultPlugins = [
   shim({
@@ -32,6 +33,10 @@ const defaultPlugins = [
   }),
   json(),
   typescript(),
+  replace({
+    'typeof Blob === "function" && value instanceof Blob': '(typeof Blob === "function" || typeof Blob === "object") && value instanceof Blob',
+    delimiters: ['', '']
+  })
 ];
 
 export default [
